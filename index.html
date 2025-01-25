@@ -32,7 +32,7 @@
   // scripts in HEAD load before DOM content: Defer registering event listener on form until DOM is ready and Id can be found
   document.addEventListener('DOMContentLoaded', _ => {
     // Ensure form submission triggers the modal
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    document.querySelector('#contactForm').addEventListener('submit', event => {
       event.preventDefault();
       console.log('Form submitted, showing modal...');
       $('#thankYouModal').modal('show');
@@ -436,12 +436,5 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log('Form submitted, showing modal...');
-    $('#thankYouModal').modal('show');
-  });
-</script>
 </body>
 </html>
