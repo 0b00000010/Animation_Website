@@ -7,9 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
+
+    :root {
+      --background-color: #2a3439;
+      --text-color: #fff;
+    }
+
+
     body {
-    background-color: #2a3439;
-    color: #fff;
+    background-color: var(--background-color);
+    color: var(--text-color);
     }
 
     section {
@@ -22,12 +29,16 @@
   </style>
 
 <script>
-  // Ensure form submission triggers the modal
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log('Form submitted, showing modal...');
-    $('#thankYouModal').modal('show');
+  // scripts in HEAD load before DOM content: Defer registering event listener on form until DOM is ready and Id can be found
+  document.addEventListener('DOMContentLoaded', _ => {
+    // Ensure form submission triggers the modal
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      console.log('Form submitted, showing modal...');
+      $('#thankYouModal').modal('show');
+    });
   });
+
 </script>
 
 
