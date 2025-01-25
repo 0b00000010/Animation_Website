@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-
     :root {
       --background-color: #2a3439;
       --text-color: #fff;
@@ -15,426 +15,547 @@
 
 
     body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
 
     section {
-      background-color: #2a3439 !important;
+      background-color: var(--background-color);
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       font-family: 'Black Ops One', sans-serif;
     }
-  </style>
 
-<script>
-  // scripts in HEAD load before DOM content: Defer registering event listener on form until DOM is ready and Id can be found
-  document.addEventListener('DOMContentLoaded', _ => {
-    // Ensure form submission triggers the modal
-    document.querySelector('#contactForm').addEventListener('submit', event => {
-      event.preventDefault();
-      console.log('Form submitted, showing modal...');
-      $('#thankYouModal').modal('show');
-    });
-  });
+    .video-banner {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-</script>
+    .video-banner video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 80px;
+      color: #4169E1;
+    }
 
-  <style>
-.video-banner {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.video-banner video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 80px;
-  color: #4169E1;
-}
-
-.video-overlay h1 {
-  font-size: 4.5rem;
-  font-family: 'Black Ops One', sans-serif;
-  text-align: center;
-  margin: 0;
-}
+    .video-overlay h1 {
+      font-size: 4.5rem;
+      font-family: 'Black Ops One', sans-serif;
+      text-align: center;
+      margin: 0;
+    }
 
     .scroll-box {
-  height: 300px;
-  overflow-y: scroll;
-  background-color: #2a3439;
-  color: #4169e1;
-  border: 1px solid #4169e1;
-  padding: 15px;
-  border-radius: 5px;
-}
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #2a3439;
+      color: #4169e1;
+      border: 1px solid #4169e1;
+      padding: 15px;
+      border-radius: 5px;
+    }
 
-/* Hover effect for FAQ question text */
-.faq-item h5:hover {
-  color: #5A9BCF;
-  font-size: 0.95em;
-  transition: all 0.3s ease;
-}
+    /* Hover effect for FAQ question text */
+    .faq-item h5 {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      margin: 0;
+      padding: 4px;
 
+      &:hover {
+        color: #5A9BCF;
+      }
+
+    }
+
+    .navbar {
+      &.custom-style {
+        background-color: var(--background-color);
+        z-index: 1;
+        box-shadow: 0 1px 4px -1px #181818;
+      }
+    }
+
+    .container.fixed-height .carousel-inner {
+      height: 240px;
+    }
+
+    .flex-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    img.fixed-dim {
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+    }
+
+    .testimonial-display {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+
+      &>p {
+        text-align: center;
+      }
+
+    }
+
+    .student-name {
+      font-weight: bold;
+    }
   </style>
+
+  <script>
+    // scripts in HEAD load before DOM content: Defer registering event listener on form until DOM is ready and Id can be found
+    document.addEventListener('DOMContentLoaded', _ => {
+      // Ensure form submission triggers the modal
+      document.querySelector('#contactForm').addEventListener('submit', event => {
+        event.preventDefault();
+        console.log('Form submitted, showing modal...');
+        $('#thankYouModal').modal('show');
+      });
+    });
+
+  </script>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2a3439;>
-  <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="#courses" >Courses</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="#about">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="#faq">FAQ</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="#testimonies">Testimonies</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="#contact">Contact Us</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-style">
+    <a class=" navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#courses">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#testimonies">Testimonies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#contact">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- Hero Banner -->
-<section class="video-banner">
-  <video autoplay muted loop playsinline>
-    <source src="Assets/Videos/videoplayback.mp4" type="video/mp4" loading="lazy">
-    Your browser does not support the video tag.
-  </video>
-  <div class="video-overlay">
-    <h1>A1 Animations</h1>
-  </div>
-</section>
+  <!-- Hero Banner -->
+  <section class="video-banner">
+    <video autoplay muted loop playsinline>
+      <source src="Assets/Videos/videoplayback.mp4" type="video/mp4" loading="lazy">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+      <h1>A1 Animations</h1>
+    </div>
+  </section>
 
-<!-- Courses Section -->
-<section id="courses" class="py-5" style="background-color: #2a3439; padding: 20px;">
-  <div class="container">
-    <h2 class="text-center text-primary mb-4">Our Courses</h2>
-    <div id="coursesCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" style="background-color: #2a3439; padding: 20px;">
-        <!-- Course 1 -->
-        <div class="carousel-item active">
-          <div class="card" style="background-color: #2a3439; color: #4169e1;">
-            <div class="card-img-container d-flex align-items-center justify-content-center" style="height: 200px; overflow: hidden;">
-              <img class="img-fluid" src="Assets/Videos/Images/Understanding-Animation-Basics.webp" alt="2D Animation" loading="lazy">
+  <!-- Courses Section -->
+  <section id="courses" class="py-5" style="background-color: #2a3439; padding: 20px;">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">Our Courses</h2>
+      <div id="coursesCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" style="background-color: #2a3439; padding: 20px;">
+          <!-- Course 1 -->
+          <div class="carousel-item active">
+            <div class="card" style="background-color: #2a3439; color: #4169e1;">
+              <div class="card-img-container d-flex align-items-center justify-content-center"
+                style="height: 200px; overflow: hidden;">
+                <img class="img-fluid" src="Assets/Videos/Images/Understanding-Animation-Basics.webp" alt="2D Animation"
+                  loading="lazy">
+              </div>
+              <div class="card-body text-primary">
+                <h5 class="card-title">2D Animation</h5>
+                <p class="card-text">Learn the art of traditional 2D animation and storytelling.</p>
+              </div>
             </div>
-            <div class="card-body text-primary">
-              <h5 class="card-title">2D Animation</h5>
-              <p class="card-text">Learn the art of traditional 2D animation and storytelling.</p>
+          </div>
+          <!-- Course 2 -->
+          <div class="carousel-item">
+            <div class="card" style="background-color: #2a3439; color: #4169e1;">
+              <div class="card-img-container d-flex align-items-center justify-content-center"
+                style="height: 200px; overflow: hidden;">
+                <img class="img-fluid" src="Assets/Videos/Images/video-game-in-landscape.webp" loading="lazy"
+                  alt="3D Modeling">
+              </div>
+              <div class="card-body text-primary">
+                <h5 class="card-title">3D Modeling</h5>
+                <p class="card-text">Master the skills of 3D animation and character rigging.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Course 3 -->
+          <div class="carousel-item">
+            <div class="card" style="background-color: #2a3439; color: #4169e1;">
+              <div class="card-img-container d-flex align-items-center justify-content-center"
+                style="height: 200px; overflow: hidden;">
+                <img class="img-fluid" src="Assets/Videos/Images/maxresdefault.jpg" alt="Motion Graphics"
+                  loading="lazy">
+              </div>
+              <div class="card-body text-primary">
+                <h5 class="card-title">Motion Graphics</h5>
+                <p class="card-text">Design eye-catching motion graphics and animations.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Course 4 -->
+          <div class="carousel-item">
+            <div class="card" style="background-color: #2a3439; color: #4169e1;">
+              <div class="card-img-container d-flex align-items-center justify-content-center"
+                style="height: 200px; overflow: hidden;">
+                <img class="img-fluid" src="Assets/Videos/Images/game-animation-sample-header.avif" alt="Game Animation"
+                  loading="lazy">
+              </div>
+              <div class="card-body text-primary">
+                <h5 class="card-title">Game Animation</h5>
+                <p class="card-text">Bring video game characters and worlds to life.</p>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Course 2 -->
-        <div class="carousel-item">
-          <div class="card" style="background-color: #2a3439; color: #4169e1;">
-            <div class="card-img-container d-flex align-items-center justify-content-center" style="height: 200px; overflow: hidden;">
-              <img class="img-fluid" src="Assets/Videos/Images/video-game-in-landscape.webp" loading="lazy" alt="3D Modeling">
+        <a class="carousel-control-prev" href="#coursesCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#coursesCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Us Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">Our Story</h2>
+      <div class="scroll-box bg-light p-4 rounded">
+        <p>
+          Founded in 1992, A1 Animations began as a small collective of passionate artists who shared a love for
+          bringing stories to life through motion. Originally operating out of a modest studio in a converted warehouse,
+          the founders were pioneers in experimenting with both traditional hand-drawn animation and the emerging field
+          of computer-generated imagery. Their first major project, Tales of the Midnight Sky, a short animated film,
+          won accolades for its groundbreaking blend of 2D and 3D animation, setting the stage for the studio’s
+          reputation for innovation.</p>
+
+        <p>Over the years, A1 Animations expanded its horizons, attracting top talent from around the globe. By the
+          mid-2000s, the studio had transitioned fully into digital animation, becoming a leader in creating
+          high-quality animations for video games, films, and television. Their collaborations with major studios and
+          indie developers alike solidified their place as industry leaders, with blockbuster hits such as Galactic
+          Guardians: Uprising and The Legend of Aurion to their name. Despite their success, the company remained
+          steadfast in nurturing creativity, priding itself on being an incubator for young talent.</p>
+
+        <p>In 2010, the studio made a bold move to focus on education alongside production, launching its first
+          animation course under the brand A1 Academy. Recognizing a gap in the market for comprehensive, hands-on
+          training, the team designed courses that taught not only technical skills like rigging, modeling, and
+          texturing but also the art of storytelling, character design, and emotional impact. These programs quickly
+          gained accreditation and recognition, producing graduates who went on to work for major players like Pixar,
+          Ubisoft, and Disney.</p>
+
+        <p>The studio’s headquarters, now a state-of-the-art facility with motion-capture labs and VR-enabled
+          classrooms, serves as both a creative space and a training ground for the next generation of animators. A1
+          Animations has also embraced cutting-edge technology, integrating AI-assisted animation workflows and virtual
+          production techniques into their curriculum and projects. The result is a unique blend of artistry and
+          technology, where students and professionals collaborate on real-world projects, learning by doing.</p>
+
+        <p>One of the company’s core values is accessibility, and they offer scholarships to underrepresented
+          communities, ensuring that anyone with a dream of animation can have a place in their program. Over the last
+          decade, they’ve trained thousands of animators, some of whom have returned to teach or collaborate on new
+          projects, creating a vibrant and supportive alumni network. To date, A1 Animations has expanded its
+          educational offerings to include online courses, making their expertise available to aspiring animators
+          worldwide.</p>
+
+        <p>A1 Animations remains dedicated to pushing the boundaries of what animation can achieve. Their recent
+          project, Chronicles of the Aether, a fully interactive animated series, has been hailed as a masterpiece for
+          seamlessly blending traditional storytelling with audience-driven choices. Meanwhile, their educational arm
+          continues to grow, offering specialized tracks in everything from creature design to real-time animation for
+          Unreal Engine.</p>
+
+        <p>What sets A1 Animations apart is its unwavering belief that animation is more than just a visual medium—it’s
+          a way to connect, inspire, and transform. Every frame they create, whether for clients or as part of their
+          courses, carries a piece of their rich history and dedication to the craft. From humble beginnings to global
+          acclaim, A1 Animations has stayed true to its mission: to empower artists and tell stories that move the
+          world.</p>
+
+        <p>Today, the studio stands as a beacon for aspiring animators, a hub of cutting-edge technology, and a trusted
+          partner for some of the entertainment industry’s biggest names. Whether producing a blockbuster animated
+          feature or mentoring a new student, A1 Animations never loses sight of its roots: a small team of dreamers
+          determined to animate the impossible. With over three decades of excellence and innovation under its belt, the
+          company looks forward to inspiring the next generation of storytellers, creators, and visionaries.</p>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">FAQ</h2>
+      <div class="flex-items">
+
+        <!-- FAQ Item 1 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer1">
+          <h5>What is animation?</h5>
+        </div>
+        <div id="answer1" class="collapse text-white mb-3">
+          Animation is bringing still images to life.
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer2">
+          <h5>What is the duration of the courses?</h5>
+        </div>
+        <div id="answer2" class="collapse text-white mb-3">
+          Our courses range from 3 months to 12 months, depending on the specialization.
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer3">
+          <h5>Do I need prior animation experience to join?</h5>
+        </div>
+        <div id="answer3" class="collapse text-white mb-3">
+          No prior experience is required. We offer beginner-friendly courses as well as advanced tracks for experienced
+          animators.
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer4">
+          <h5>Are the courses available online?</h5>
+        </div>
+        <div id="answer4" class="collapse text-white mb-3">
+          Yes, we offer both in-person and online courses for maximum flexibility.
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer5">
+          <h5>What software will I learn during the course?</h5>
+        </div>
+        <div id="answer5" class="collapse text-white mb-3">
+          We cover industry-standard software such as Blender, Maya, Adobe Animate, and Unreal Engine.
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer6">
+          <h5>Are there any scholarships available?</h5>
+        </div>
+        <div id="answer6" class="collapse text-white mb-3">
+          Yes, we offer scholarships for underrepresented communities and exceptional students.
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer7">
+          <h5>What is the class size for the in-person courses?</h5>
+        </div>
+        <div id="answer7" class="collapse text-white mb-3">
+          Class sizes are typically between 10-20 students to ensure personalized attention.
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer8">
+          <h5>Will I receive a certificate upon completion?</h5>
+        </div>
+        <div id="answer8" class="collapse text-white mb-3">
+          Yes, all students who complete the course will receive a certificate of completion.
+        </div>
+
+        <!-- FAQ Item 9 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer9">
+          <h5>Do you offer job placement assistance after graduation?</h5>
+        </div>
+        <div id="answer9" class="collapse text-white mb-3">
+          Yes, we provide job placement services, including resume workshops, interview preparation, and access to our
+          industry network.
+        </div>
+
+        <!-- FAQ Item 10 -->
+        <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer10">
+          <h5>Can I take multiple courses at once?</h5>
+        </div>
+        <div id="answer10" class="collapse text-white mb-3">
+          Yes, you can take multiple courses, but we recommend consulting with our advisors to manage your workload
+          effectively.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonies Section -->
+  <section id="testimonies" class="py-5">
+    <div class="container fixed-height">
+      <h2 class="text-center text-primary mb-4">Student Testimonials</h2>
+
+      <!-- Testimonial Carousel -->
+      <div id="testimonialCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Testimonial 1 -->
+          <div class="carousel-item active">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/Zion-Harris-0155-Professional-Headshots-Louisville-Gary-Barragan-1.jpg"
+                loading="lazy" alt="Student 1" class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Clayton Hall</p>
+              <p>“A1 Animations transformed my career!”</p>
             </div>
-            <div class="card-body text-primary">
-              <h5 class="card-title">3D Modeling</h5>
-              <p class="card-text">Master the skills of 3D animation and character rigging.</p>
+
+
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="carousel-item">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/mjb-2465.jpg" loading="lazy" alt="Student 2"
+                class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Elise Thatcher</p>
+              <p>“I learned so much during the course, and it helped me land my dream job at Pixar!”</p>
+            </div>
+
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="carousel-item">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/MenPortraits037a-1280x640.jpg" loading="lazy" alt="Student 3"
+                class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Timothy Caldwell</p>
+              <p>“The hands-on experience at A1 Animations is unparalleled. The instructors are top-notch!”</p>
+            </div>
+
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="carousel-item">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/JonMarkPhotography-CommercialPortfolio-WEB-1136.jpg" loading="lazy"
+                alt="Student 4" class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Brenton Stacks</p>
+              <p>“This course gave me the skills I needed to create my own animation studio!”</p>
             </div>
           </div>
-        </div>
-        <!-- Course 3 -->
-        <div class="carousel-item">
-          <div class="card" style="background-color: #2a3439; color: #4169e1;">
-            <div class="card-img-container d-flex align-items-center justify-content-center" style="height: 200px; overflow: hidden;">
-              <img class="img-fluid" src="Assets/Videos/Images/maxresdefault.jpg" alt="Motion Graphics" loading="lazy">
+
+          <!-- Testimonial 5 -->
+          <div class="carousel-item">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/headshots-800x536.jpg" loading="lazy" alt="Student 5"
+                class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Mikal Soo</p>
+              <p>“A1 Animations helped me find my true creative voice and grow as an artist.”</p>
             </div>
-            <div class="card-body text-primary">
-              <h5 class="card-title">Motion Graphics</h5>
-              <p class="card-text">Design eye-catching motion graphics and animations.</p>
+
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="carousel-item">
+            <div class="testimonial-display">
+              <img src="Assets/Videos/Images/6_20200723104642_17527021_large.jpg" loading="lazy" alt="Student 6"
+                class="d-block mx-auto rounded-circle fixed-dim">
+              <p class="student-name">Amber Hart</p>
+              <p>“The course prepared me for real-world animation projects, and I couldn't be more grateful!”</p>
             </div>
+
           </div>
         </div>
-        <!-- Course 4 -->
-        <div class="carousel-item">
-          <div class="card" style="background-color: #2a3439; color: #4169e1;">
-            <div class="card-img-container d-flex align-items-center justify-content-center" style="height: 200px; overflow: hidden;">
-              <img class="img-fluid" src="Assets/Videos/Images/game-animation-sample-header.avif" alt="Game Animation" loading="lazy">
-            </div>
-            <div class="card-body text-primary">
-              <h5 class="card-title">Game Animation</h5>
-              <p class="card-text">Bring video game characters and worlds to life.</p>
-            </div>
-          </div>
-        </div>
+
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#coursesCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#coursesCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- About Us Section -->
-<section id="about" class="py-5">
-  <div class="container">
-    <h2 class="text-center text-primary mb-4">Our Story</h2>
-    <div class="scroll-box bg-light p-4 rounded">
-      <p>
-        Founded in 1992, A1 Animations began as a small collective of passionate artists who shared a love for bringing stories to life through motion. Originally operating out of a modest studio in a converted warehouse, the founders were pioneers in experimenting with both traditional hand-drawn animation and the emerging field of computer-generated imagery. Their first major project, Tales of the Midnight Sky, a short animated film, won accolades for its groundbreaking blend of 2D and 3D animation, setting the stage for the studio’s reputation for innovation.</p>
-
-<p>Over the years, A1 Animations expanded its horizons, attracting top talent from around the globe. By the mid-2000s, the studio had transitioned fully into digital animation, becoming a leader in creating high-quality animations for video games, films, and television. Their collaborations with major studios and indie developers alike solidified their place as industry leaders, with blockbuster hits such as Galactic Guardians: Uprising and The Legend of Aurion to their name. Despite their success, the company remained steadfast in nurturing creativity, priding itself on being an incubator for young talent.</p>
-
-<p>In 2010, the studio made a bold move to focus on education alongside production, launching its first animation course under the brand A1 Academy. Recognizing a gap in the market for comprehensive, hands-on training, the team designed courses that taught not only technical skills like rigging, modeling, and texturing but also the art of storytelling, character design, and emotional impact. These programs quickly gained accreditation and recognition, producing graduates who went on to work for major players like Pixar, Ubisoft, and Disney.</p>
-
-<p>The studio’s headquarters, now a state-of-the-art facility with motion-capture labs and VR-enabled classrooms, serves as both a creative space and a training ground for the next generation of animators. A1 Animations has also embraced cutting-edge technology, integrating AI-assisted animation workflows and virtual production techniques into their curriculum and projects. The result is a unique blend of artistry and technology, where students and professionals collaborate on real-world projects, learning by doing.</p>
-
-<p>One of the company’s core values is accessibility, and they offer scholarships to underrepresented communities, ensuring that anyone with a dream of animation can have a place in their program. Over the last decade, they’ve trained thousands of animators, some of whom have returned to teach or collaborate on new projects, creating a vibrant and supportive alumni network. To date, A1 Animations has expanded its educational offerings to include online courses, making their expertise available to aspiring animators worldwide.</p>
-
-<p>A1 Animations remains dedicated to pushing the boundaries of what animation can achieve. Their recent project, Chronicles of the Aether, a fully interactive animated series, has been hailed as a masterpiece for seamlessly blending traditional storytelling with audience-driven choices. Meanwhile, their educational arm continues to grow, offering specialized tracks in everything from creature design to real-time animation for Unreal Engine.</p>
-
-<p>What sets A1 Animations apart is its unwavering belief that animation is more than just a visual medium—it’s a way to connect, inspire, and transform. Every frame they create, whether for clients or as part of their courses, carries a piece of their rich history and dedication to the craft. From humble beginnings to global acclaim, A1 Animations has stayed true to its mission: to empower artists and tell stories that move the world.</p>
-
-<p>Today, the studio stands as a beacon for aspiring animators, a hub of cutting-edge technology, and a trusted partner for some of the entertainment industry’s biggest names. Whether producing a blockbuster animated feature or mentoring a new student, A1 Animations never loses sight of its roots: a small team of dreamers determined to animate the impossible. With over three decades of excellence and innovation under its belt, the company looks forward to inspiring the next generation of storytellers, creators, and visionaries.</p>
-      </p>
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-5 text-white">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">Contact Us</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQ Section -->
-<section id="faq" class="py-5">
-  <div class="container">
-    <h2 class="text-center text-primary mb-4">FAQ</h2>
-    <div>
-
-      <!-- FAQ Item 1 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer1">
-        <h5>What is animation?</h5>
-      </div>
-      <div id="answer1" class="collapse text-white mb-3">
-        Animation is bringing still images to life.
-      </div>
-
-      <!-- FAQ Item 2 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer2">
-        <h5>What is the duration of the courses?</h5>
-      </div>
-      <div id="answer2" class="collapse text-white mb-3">
-        Our courses range from 3 months to 12 months, depending on the specialization.
-      </div>
-
-      <!-- FAQ Item 3 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer3">
-        <h5>Do I need prior animation experience to join?</h5>
-      </div>
-      <div id="answer3" class="collapse text-white mb-3">
-        No prior experience is required. We offer beginner-friendly courses as well as advanced tracks for experienced animators.
-      </div>
-
-      <!-- FAQ Item 4 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer4">
-        <h5>Are the courses available online?</h5>
-      </div>
-      <div id="answer4" class="collapse text-white mb-3">
-        Yes, we offer both in-person and online courses for maximum flexibility.
-      </div>
-
-      <!-- FAQ Item 5 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer5">
-        <h5>What software will I learn during the course?</h5>
-      </div>
-      <div id="answer5" class="collapse text-white mb-3">
-        We cover industry-standard software such as Blender, Maya, Adobe Animate, and Unreal Engine.
-      </div>
-
-      <!-- FAQ Item 6 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer6">
-        <h5>Are there any scholarships available?</h5>
-      </div>
-      <div id="answer6" class="collapse text-white mb-3">
-        Yes, we offer scholarships for underrepresented communities and exceptional students.
-      </div>
-
-      <!-- FAQ Item 7 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer7">
-        <h5>What is the class size for the in-person courses?</h5>
-      </div>
-      <div id="answer7" class="collapse text-white mb-3">
-        Class sizes are typically between 10-20 students to ensure personalized attention.
-      </div>
-
-      <!-- FAQ Item 8 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer8">
-        <h5>Will I receive a certificate upon completion?</h5>
-      </div>
-      <div id="answer8" class="collapse text-white mb-3">
-        Yes, all students who complete the course will receive a certificate of completion.
-      </div>
-
-      <!-- FAQ Item 9 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer9">
-        <h5>Do you offer job placement assistance after graduation?</h5>
-      </div>
-      <div id="answer9" class="collapse text-white mb-3">
-        Yes, we provide job placement services, including resume workshops, interview preparation, and access to our industry network.
-      </div>
-
-      <!-- FAQ Item 10 -->
-      <div class="faq-item text-primary mb-3" data-toggle="collapse" data-target="#answer10">
-        <h5>Can I take multiple courses at once?</h5>
-      </div>
-      <div id="answer10" class="collapse text-white mb-3">
-        Yes, you can take multiple courses, but we recommend consulting with our advisors to manage your workload effectively.
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- Testimonies Section -->
-<section id="testimonies" class="py-5">
-  <div class="container">
-    <h2 class="text-center text-primary mb-4">Student Testimonials</h2>
-
-    <!-- Testimonial Carousel -->
-    <div id="testimonialCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-
-        <!-- Testimonial 1 -->
-        <div class="carousel-item active text-center">
-          <img src="Assets/Videos/Images/Zion-Harris-0155-Professional-Headshots-Louisville-Gary-Barragan-1.jpg" loading="lazy" alt="Student 1" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Clayton Hall</p>
-          <p class="text-white">“A1 Animations transformed my career!”</p>
+  <!-- Thank You Modal -->
+  <div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="thankYouModalLabel">Messege Recieved!</h5>
         </div>
-
-        <!-- Testimonial 2 -->
-        <div class="carousel-item text-center">
-          <img src="Assets/Videos/Images/mjb-2465.jpg" loading="lazy" alt="Student 2" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Elise Thatcher</p>
-          <p class="text-white">“I learned so much during the course, and it helped me land my dream job at Pixar!”</p>
+        <div class="modal-body" style="color: black;">
+          <p>Thank you for reaching out! We'll have one of our administrators review your message and get back with you
+            soon!</p>
+          <p>- A1 Administration Team</p>
         </div>
-
-        <!-- Testimonial 3 -->
-        <div class="carousel-item text-center">
-          <img src="Assets/Videos/Images/MenPortraits037a-1280x640.jpg" loading="lazy" alt="Student 3" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Timothy Caldwell</p>
-          <p class="text-white">“The hands-on experience at A1 Animations is unparalleled. The instructors are top-notch!”</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
-
-        <!-- Testimonial 4 -->
-        <div class="carousel-item text-center">
-          <img src="Assets/Videos/Images/JonMarkPhotography-CommercialPortfolio-WEB-1136.jpg" loading="lazy" alt="Student 4" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Brenton Stacks</p>
-          <p class="text-white">“This course gave me the skills I needed to create my own animation studio!”</p>
-        </div>
-
-        <!-- Testimonial 5 -->
-        <div class="carousel-item text-center">
-          <img src="Assets/Videos/Images/headshots-800x536.jpg" loading="lazy" alt="Student 5" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Mikal Soo</p>
-          <p class="text-white">“A1 Animations helped me find my true creative voice and grow as an artist.”</p>
-        </div>
-
-        <!-- Testimonial 6 -->
-        <div class="carousel-item text-center">
-          <img src="Assets/Videos/Images/6_20200723104642_17527021_large.jpg" loading="lazy" alt="Student 6" class="d-block mx-auto rounded-circle" width="150">
-          <p class="text-white">Amber Hart</p>
-          <p class="text-white">“The course prepared me for real-world animation projects, and I couldn't be more grateful!”</p>
-        </div>
-      </div>
-
-      <!-- Carousel Controls -->
-      <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- Contact Us Section -->
-<section id="contact" class="py-5 text-white">
-  <div class="container">
-    <h2 class="text-center text-primary mb-4">Contact Us</h2>
-    <form id="contactForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-</section>
-
-<!-- Thank You Modal -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="thankYouModalLabel">Messege Recieved!</h5>
-      </div>
-      <div class="modal-body" style="color: black;">
-        <p>Thank you for reaching out! We'll have one of our administrators review your message and get back with you soon!</p>
-        <p>- A1 Administration Team</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Footer -->
-<footer class="bg-dark text-center text-white py-3">
-  <p>A1 Animations</p>
-  <small>Est. 1992</small>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-dark bg-gradient text-center text-white py-3">
+    <p>A1 Animations</p>
+    <small>Est. 1992</small>
+  </footer>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
