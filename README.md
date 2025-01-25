@@ -50,7 +50,6 @@ A highly responsive, animation-rich, and accessible webpage for A1 Animations, a
 * Submit a message through the Contact Us form and receive a confirmation modal.
 
 ## Known Issues
-* Modal Issue: Ensure all id references match between the button and the modal for proper functionality.
 * Performance: For even better performance, consider hosting assets on a CDN.
 
 ## Contributors
